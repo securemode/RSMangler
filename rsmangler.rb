@@ -69,6 +69,7 @@ opts = GetoptLong.new(
 	['--punctuation', GetoptLong::NO_ARGUMENT],
 	['--years', '-y', GetoptLong::NO_ARGUMENT],
 	['--months', '-n', GetoptLong::NO_ARGUMENT],
+	['--welcome', '-w', GetoptLong::NO_ARGUMENT],
 	['--acronym', '-a', GetoptLong::NO_ARGUMENT],
 	['--seasons', GetoptLong::NO_ARGUMENT],
 	['--random', GetoptLong::NO_ARGUMENT],
@@ -134,6 +135,7 @@ To send the output to a file:
 	--punctuation: add common punctuation to the end of the word
 	--years, -y: add all years from 1980 to 2020 year to start and end
 	--months, -n: add all months from 1980 to 2020 year to start and end
+	--welcome, -w: welcome
 	--seasons: add SeasonYear from 1980 to 2020
 	--random: Random additions
 	--acronym, -a: create an acronym based on all the words entered in order and add to word list
@@ -195,6 +197,7 @@ ing = true
 punctuation = true
 years = true
 months = true
+welcome = true
 acronym = true
 common = true
 pna = true
@@ -276,6 +279,8 @@ begin
 			years = false
 		when '--months'
 			months = false
+		when '--welcome'
+			welcome = false
 		when '--seasons'
 			seasons = false
 		when '--random'
@@ -737,6 +742,15 @@ wordlist.each do |x|
         end
     end
 
+	if welcome
+		nums = (0..20)
+		for n in nums
+			results << "welcome" + n.to_s
+			results << "welcome" + n.to_s + "!"
+			results << "welcome".capitalize + n.to_s
+			results << "welcome".capitalize + n.to_s
+		end
+	end		
 
 	if seasons
 		season = ["winter","summer","spring","fall"]	
