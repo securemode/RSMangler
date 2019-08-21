@@ -29,14 +29,15 @@ require 'zlib'
 # with
 
 leet_swap = {
-    's' => ['$', '5', 's'],
-    'e' => ['3', 'e'],
-    'a' => ['4', '@', 'a'],
-    'o' => ['0', 'o'],
-    'i' => ['1', 'i'],
-    'l' => ['1', 'l'],
-    't' => ['7', 't'],
-    'z' => ['2', 'z'],
+	's' => ['$', '5'],
+	'e' => ['3'],
+	'a' => ['4', '@'],
+	'o' => ['0'],
+	'i' => ['1', '!'],
+	'l' => ['1', '!', 'i'],
+	't' => ['7'],
+	'b' => ['8'],
+	'z' => ['2'],
 }
 
 # Common words to append and prepend if --common is allowed
@@ -67,6 +68,7 @@ opts = GetoptLong.new(
 	['--ing', '-i', GetoptLong::NO_ARGUMENT],
 	['--punctuation', GetoptLong::NO_ARGUMENT],
 	['--years', '-y', GetoptLong::NO_ARGUMENT],
+	['--months', '-n', GetoptLong::NO_ARGUMENT],
 	['--acronym', '-a', GetoptLong::NO_ARGUMENT],
 	['--seasons', GetoptLong::NO_ARGUMENT],
 	['--random', GetoptLong::NO_ARGUMENT],
@@ -131,6 +133,7 @@ To send the output to a file:
 	--ing, -i: add ing to the end of the word
 	--punctuation: add common punctuation to the end of the word
 	--years, -y: add all years from 1980 to 2020 year to start and end
+	--months, -n: add all months from 1980 to 2020 year to start and end
 	--seasons: add SeasonYear from 1980 to 2020
 	--random: Random additions
 	--acronym, -a: create an acronym based on all the words entered in order and add to word list
@@ -191,6 +194,7 @@ ed = true
 ing = true
 punctuation = true
 years = true
+months = true
 acronym = true
 common = true
 pna = true
@@ -270,6 +274,8 @@ begin
 			acronym = false
 		when '--years'
 			years = false
+		when '--months'
+			months = false
 		when '--seasons'
 			seasons = false
 		when '--random'
@@ -443,6 +449,294 @@ wordlist.each do |x|
 			results << x.capitalize + i.to_s + "!"
 		end
 	end
+
+    if months
+        for i in (1980..2020)
+            results << i.to_s + "january"
+            results << i.to_s + "january" + "!"
+		
+			results << i.to_s + "february"
+			results << i.to_s + "february" + "!"
+
+            results << i.to_s + "march"
+            results << i.to_s + "march" + "!"
+
+            results << i.to_s + "april"
+            results << i.to_s + "april" + "!"
+
+            results << i.to_s + "june"
+            results << i.to_s + "june" + "!"
+
+            results << i.to_s + "july"
+            results << i.to_s + "july" + "!"
+
+            results << i.to_s + "august"
+            results << i.to_s + "august" + "!"
+
+            results << i.to_s + "september"
+            results << i.to_s + "september" + "!"
+
+            results << i.to_s + "october"
+            results << i.to_s + "october" + "!"
+
+            results << i.to_s + "november"
+            results << i.to_s + "november" + "!"
+
+            results << i.to_s + "december"
+            results << i.to_s + "december" + "!"
+
+
+            results << i.to_s + "jan"
+            results << i.to_s + "jan" + "!"
+
+            results << i.to_s + "feb"
+            results << i.to_s + "feb" + "!"
+
+            results << i.to_s + "mar"
+            results << i.to_s + "mar" + "!"
+
+            results << i.to_s + "apr"
+            results << i.to_s + "apr" + "!"
+
+            results << i.to_s + "may"
+            results << i.to_s + "may" + "!"
+
+            results << i.to_s + "jun"
+            results << i.to_s + "jun" + "!"
+
+            results << i.to_s + "jul"
+            results << i.to_s + "jul" + "!"
+
+            results << i.to_s + "aug"
+            results << i.to_s + "aug" + "!"
+
+            results << i.to_s + "sep"
+            results << i.to_s + "sep" + "!"
+
+            results << i.to_s + "oct"
+            results << i.to_s + "oct" + "!"
+
+            results << i.to_s + "nov"
+            results << i.to_s + "nov" + "!"
+
+            results << i.to_s + "dec"
+            results << i.to_s + "dec" + "!"
+
+
+            results << "january" + i.to_s
+            results << "january" + i.to_s + "!"
+
+            results << "february" + i.to_s
+            results << "february" + i.to_s + "!"
+
+            results << "march" + i.to_s
+            results << "march" + i.to_s + "!"
+
+            results << "april" + i.to_s
+            results << "april" + i.to_s + "!"
+
+            results << "june" + i.to_s
+            results << "june" + i.to_s + "!"
+
+            results << "july" + i.to_s
+            results << "july" + i.to_s + "!"
+
+            results << "august" + i.to_s
+            results << "august" + i.to_s + "!"
+
+            results << "september" + i.to_s
+            results << "september" + i.to_s + "!"
+
+            results << "october" + i.to_s
+            results << "october" + i.to_s + "!"
+
+            results << "november" + i.to_s
+            results << "november" + i.to_s + "!"
+
+            results << "december" + i.to_s
+            results << "december" + i.to_s + "!"
+
+
+            results << "jan" + i.to_s
+            results << "jan" + i.to_s + "!"
+
+            results << "feb" + i.to_s
+            results << "feb" + i.to_s + "!"
+
+            results << "mar" + i.to_s
+            results << "mar" + i.to_s + "!"
+
+            results << "apr" + i.to_s
+            results << "apr" + i.to_s + "!"
+
+			results << "may" + i.to_s
+			results << "may" + i.to_s + "!"
+
+
+            results << "jun" + i.to_s
+            results << "jun" + i.to_s + "!"
+
+            results << "jul" + i.to_s
+            results << "jul" + i.to_s + "!"
+
+            results << "aug" + i.to_s
+            results << "aug" + i.to_s + "!"
+
+            results << "sep" + i.to_s
+            results << "sep" + i.to_s + "!"
+
+            results << "oct" + i.to_s
+            results << "oct" + i.to_s + "!"
+
+            results << "nov" + i.to_s
+            results << "nov" + i.to_s + "!"
+
+            results << "dec" + i.to_s
+            results << "dec" + i.to_s + "!"
+
+            results << i.to_s + "january".capitalize
+            results << i.to_s + "january".capitalize + "!"
+
+            results << i.to_s + "february".capitalize
+            results << i.to_s + "february".capitalize + "!"
+
+            results << i.to_s + "march".capitalize
+            results << i.to_s + "march".capitalize + "!"
+
+            results << i.to_s + "april".capitalize
+            results << i.to_s + "april".capitalize + "!"
+
+            results << i.to_s + "june".capitalize
+            results << i.to_s + "june".capitalize + "!"
+
+            results << i.to_s + "july".capitalize
+            results << i.to_s + "july".capitalize + "!"
+
+            results << i.to_s + "august".capitalize
+            results << i.to_s + "august".capitalize + "!"
+
+            results << i.to_s + "september".capitalize
+            results << i.to_s + "september".capitalize + "!"
+
+            results << i.to_s + "october".capitalize
+            results << i.to_s + "october".capitalize + "!"
+
+            results << i.to_s + "november".capitalize
+            results << i.to_s + "november".capitalize + "!"
+
+            results << i.to_s + "december".capitalize
+            results << i.to_s + "december".capitalize + "!"
+
+
+
+            results << i.to_s + "jan".capitalize
+            results << i.to_s + "jan".capitalize + "!"
+
+            results << i.to_s + "feb".capitalize
+            results << i.to_s + "feb".capitalize + "!"
+
+            results << i.to_s + "mar".capitalize
+            results << i.to_s + "mar".capitalize + "!"
+
+            results << i.to_s + "apr".capitalize
+            results << i.to_s + "apr".capitalize + "!"
+
+            results << i.to_s + "may".capitalize
+            results << i.to_s + "may".capitalize + "!"
+
+            results << i.to_s + "jun".capitalize
+            results << i.to_s + "jun".capitalize + "!"
+
+            results << i.to_s + "jul".capitalize
+            results << i.to_s + "jul".capitalize + "!"
+
+            results << i.to_s + "aug".capitalize
+            results << i.to_s + "aug".capitalize + "!"
+
+            results << i.to_s + "sep".capitalize
+            results << i.to_s + "sep".capitalize + "!"
+
+            results << i.to_s + "oct".capitalize
+            results << i.to_s + "oct".capitalize + "!"
+
+            results << i.to_s + "nov".capitalize
+            results << i.to_s + "nov".capitalize + "!"
+
+            results << i.to_s + "dec".capitalize
+            results << i.to_s + "dec".capitalize + "!"
+
+            results << "january".capitalize + i.to_s
+            results << "january".capitalize + i.to_s + "!"
+
+            results << "february".capitalize + i.to_s
+            results << "february".capitalize + i.to_s + "!"
+
+            results << "march".capitalize + i.to_s
+            results << "march".capitalize + i.to_s + "!"
+
+            results << "april".capitalize + i.to_s
+            results << "april".capitalize + i.to_s + "!"
+
+            results << "june".capitalize + i.to_s
+            results << "june".capitalize + i.to_s + "!"
+
+            results << "july".capitalize + i.to_s
+            results << "july".capitalize + i.to_s + "!"
+
+            results << "august".capitalize + i.to_s
+            results << "august".capitalize + i.to_s + "!"
+
+            results << "september".capitalize + i.to_s
+            results << "september".capitalize + i.to_s + "!"
+
+            results << "october".capitalize + i.to_s
+            results << "october".capitalize + i.to_s + "!"
+
+            results << "november".capitalize + i.to_s
+            results << "november".capitalize + i.to_s + "!"
+
+            results << "december".capitalize + i.to_s
+            results << "december".capitalize + i.to_s + "!"
+
+            results << "jan".capitalize + i.to_s
+            results << "jan".capitalize + i.to_s + "!"
+
+            results << "feb".capitalize + i.to_s
+            results << "feb".capitalize + i.to_s + "!"
+
+            results << "mar".capitalize + i.to_s
+            results << "mar".capitalize + i.to_s + "!"
+
+            results << "apr".capitalize + i.to_s
+            results << "apr".capitalize + i.to_s + "!"
+
+            results << "may".capitalize + i.to_s
+            results << "may".capitalize + i.to_s + "!"
+
+            results << "jun".capitalize + i.to_s
+            results << "jun".capitalize + i.to_s + "!"
+        
+            results << "jul".capitalize + i.to_s
+            results << "jul".capitalize + i.to_s + "!"
+
+            results << "aug".capitalize + i.to_s
+            results << "aug".capitalize + i.to_s + "!"
+
+            results << "sep".capitalize + i.to_s
+            results << "sep".capitalize + i.to_s + "!"
+
+            results << "oct".capitalize + i.to_s
+            results << "oct".capitalize + i.to_s + "!"
+
+            results << "nov".capitalize + i.to_s
+            results << "nov".capitalize + i.to_s + "!"
+
+            results << "dec".capitalize + i.to_s
+            results << "dec".capitalize + i.to_s + "!"
+
+        end
+    end
+
 
 	if seasons
 		season = ["winter","summer","spring","fall"]	
